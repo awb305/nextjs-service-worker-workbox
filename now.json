@@ -1,0 +1,24 @@
+{
+    "version": 2,
+    "builds": [{
+        "src": "package.json",
+        "use": "@now/next"
+      },
+      {
+        "src": "src/**/*.js",
+        "use": "@now/node@canary"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/public/(.*)",
+        "status": 301,
+        "headers": { "Location": "/" }
+      },
+      {
+        "src": "/_next/static/development/pages/next/dist/pages/(.*)",
+        "status": 301,
+        "headers": { "Location": "/" }
+      }
+    ]
+  }
